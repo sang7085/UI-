@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI 가이드</title>
+    <link rel="stylesheet" href="./guide.css" />
+    <link rel="stylesheet" href="./animation.css" />
+    <link rel="stylesheet" href="./popup.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <div class="page">
+      <h1>UI 가이드</h1>
+      <p class="lead">탭에서 항목을 고르고, 제목을 누르면 미리보기와 복붙용 코드가 펼쳐집니다.</p>
+
+      <div class="guide_tab" role="tablist">
+        <button type="button" class="tab_btn is_active" role="tab" data-tab="animation" aria-selected="true">animation</button>
+        <button type="button" class="tab_btn" role="tab" data-tab="button" aria-selected="false">button</button>
+        <button type="button" class="tab_btn" role="tab" data-tab="popup" aria-selected="false">popup</button>
+        <button type="button" class="tab_btn" role="tab" data-tab="input" aria-selected="false">input</button>
+      </div>
+
+      <!-- ==================== animation ==================== -->
+      <section class="tab_panel is_active" id="tab_animation" role="tabpanel">
+        <div class="guide_list">
+          <details class="guide_item" open>
+            <summary>fade_in_up — 아래에서 페이드인</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box fade_in_up">UP</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .fade_in_up {
+                  animation: fade_in_up 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+                }
+                @keyframes fade_in_up {
+                  0% { opacity: 0; transform: translateY(40px); }
+                  100% { opacity: 1; transform: translateY(0); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>fade_in_down — 위에서 페이드인</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box fade_in_down">DOWN</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .fade_in_down {
+                  animation: fade_in_down 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+                }
+                @keyframes fade_in_down {
+                  0% { opacity: 0; transform: translateY(-40px); }
+                  100% { opacity: 1; transform: translateY(0); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>fade_in_left — 왼쪽에서 등장</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box fade_in_left">LEFT</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .fade_in_left {
+                  animation: fade_in_left 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+                }
+                @keyframes fade_in_left {
+                  0% { opacity: 0; transform: translateX(-50px); }
+                  100% { opacity: 1; transform: translateX(0); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>fade_in_right — 오른쪽에서 등장</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box fade_in_right">RIGHT</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .fade_in_right {
+                  animation: fade_in_right 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+                }
+                @keyframes fade_in_right {
+                  0% { opacity: 0; transform: translateX(50px); }
+                  100% { opacity: 1; transform: translateX(0); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>pop_bubble — 말풍선 팝</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_bubble pop_bubble">안녕!</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .pop_bubble {
+                  animation: pop_bubble 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+                }
+                @keyframes pop_bubble {
+                  0% { opacity: 0; transform: scale(0); }
+                  60% { opacity: 1; transform: scale(1.08); }
+                  80% { transform: scale(0.94); }
+                  100% { opacity: 1; transform: scale(1); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>shake_char — 캐릭터 흔들기</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_char shake_char"></div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .shake_char {
+                  animation: shake_char 1.5s infinite linear;
+                }
+                @keyframes shake_char {
+                  0%, 90%, 100% { transform: rotate(0deg); }
+                  10%, 30% { transform: rotate(-8deg); }
+                  20%, 40% { transform: rotate(8deg); }
+                  50% { transform: rotate(-4deg); }
+                  60% { transform: rotate(4deg); }
+                  70% { transform: rotate(-2deg); }
+                  80% { transform: rotate(2deg); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>bounce — 통통 튀기</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box bounce">BOUNCE</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .bounce {
+                  animation: bounce 1.1s infinite;
+                }
+                @keyframes bounce {
+                  0%, 100% { transform: translateY(0); }
+                  40% { transform: translateY(-28px); }
+                  60% { transform: translateY(-10px); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>float — 둥둥 떠있기</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box float">FLOAT</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .float {
+                  animation: float 2.4s ease-in-out infinite;
+                }
+                @keyframes float {
+                  0%, 100% { transform: translateY(0); }
+                  50% { transform: translateY(-16px); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>pulse — 커졌다 작아지기</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box pulse">PULSE</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .pulse {
+                  animation: pulse 1.2s ease-in-out infinite;
+                }
+                @keyframes pulse {
+                  0%, 100% { transform: scale(1); }
+                  50% { transform: scale(1.12); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>heartbeat — 두근두근</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box heartbeat">♥</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .heartbeat {
+                  animation: heartbeat 1.2s ease-in-out infinite;
+                }
+                @keyframes heartbeat {
+                  0%, 100% { transform: scale(1); }
+                  14% { transform: scale(1.18); }
+                  28% { transform: scale(1); }
+                  42% { transform: scale(1.18); }
+                  70% { transform: scale(1); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>spin — 회전</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box spin">SPIN</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .spin {
+                  animation: spin 1.4s linear infinite;
+                }
+                @keyframes spin {
+                  0% { transform: rotate(0deg); }
+                  100% { transform: rotate(360deg); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>swing — 그네처럼 흔들기</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box swing">SWING</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .swing {
+                  transform-origin: top center;
+                  animation: swing 1.6s ease-in-out infinite;
+                }
+                @keyframes swing {
+                  0%, 100% { transform: rotate(8deg); }
+                  50% { transform: rotate(-8deg); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>wiggle — 좌우 흔들기</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box wiggle">WIGGLE</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .wiggle {
+                  animation: wiggle 0.7s ease-in-out infinite;
+                }
+                @keyframes wiggle {
+                  0%, 100% { transform: translateX(0) rotate(0); }
+                  25% { transform: translateX(-8px) rotate(-6deg); }
+                  75% { transform: translateX(8px) rotate(6deg); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>zoom_in — 확대되며 등장</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box zoom_in">ZOOM</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .zoom_in {
+                  animation: zoom_in 0.55s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+                }
+                @keyframes zoom_in {
+                  0% { opacity: 0; transform: scale(0.4); }
+                  100% { opacity: 1; transform: scale(1); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>flip — 뒤집히며 등장</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box flip">FLIP</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .flip {
+                  animation: flip 0.8s ease forwards;
+                }
+                @keyframes flip {
+                  0% { opacity: 0; transform: rotateY(90deg); }
+                  100% { opacity: 1; transform: rotateY(0); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>shine — 반짝 하이라이트</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box shine">SHINE</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .shine {
+                  position: relative;
+                  overflow: hidden;
+                }
+                .shine::after {
+                  content: "";
+                  position: absolute;
+                  inset: 0;
+                  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,.7) 50%, transparent 70%);
+                  transform: translateX(-120%);
+                  animation: shine 1.8s ease-in-out infinite;
+                }
+                @keyframes shine {
+                  0% { transform: translateX(-120%); }
+                  100% { transform: translateX(120%); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>glow — 테두리 발광</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box glow">GLOW</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .glow {
+                  animation: glow 1.4s ease-in-out infinite;
+                }
+                @keyframes glow {
+                  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 97, 123, 0.15); }
+                  50% { box-shadow: 0 0 28px 6px rgba(255, 97, 123, 0.7); }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>blink — 깜빡이며 강조</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box blink">BLINK</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .blink {
+                  animation: blink 1s step-end infinite;
+                }
+                @keyframes blink {
+                  0%, 100% { opacity: 1; }
+                  50% { opacity: 0.15; }
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>slide_loop — 좌우 왕복</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box slide_loop">SLIDE</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .slide_loop {
+                  animation: slide_loop 1.6s ease-in-out infinite;
+                }
+                @keyframes slide_loop {
+                  0%, 100% { transform: translateX(-40px); }
+                  50% { transform: translateX(40px); }
+                }
+              </pre>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ==================== button ==================== -->
+      <section class="tab_panel" id="tab_button" role="tabpanel">
+        <p class="guide_empty">준비 중입니다.</p>
+      </section>
+
+      <!-- ==================== popup ==================== -->
+      <section class="tab_panel" id="tab_popup" role="tabpanel">
+        <div class="guide_list">
+          <details class="guide_item" open>
+            <summary>popup_layer — 공통 레이어 (먼저 복사)</summary>
+            <div class="guide_panel">
+              <p class="guide_code_title">CSS</p>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .popup_layer {
+                  position: fixed;
+                  inset: 0;
+                  z-index: 1000;
+                  display: flex;
+                  background: rgba(0, 0, 0, 0.55);
+                  color: #222;
+                  opacity: 0;
+                  visibility: hidden;
+                  transition: opacity 0.25s ease, visibility 0.25s ease;
+                }
+                .popup_layer.is_open {
+                  opacity: 1;
+                  visibility: visible;
+                }
+                .popup_center {
+                  align-items: center;
+                  justify-content: center;
+                }
+                .popup_bottom {
+                  align-items: flex-end;
+                  justify-content: center;
+                }
+                .popup_right {
+                  align-items: stretch;
+                  justify-content: flex-end;
+                }
+                .popup_title {
+                  margin: 0 0 8px;
+                  font-size: 18px;
+                  font-weight: 800;
+                }
+                .popup_text {
+                  margin: 0;
+                  font-size: 14px;
+                  line-height: 1.5;
+                  color: #555;
+                }
+                .popup_btns {
+                  display: flex;
+                  gap: 8px;
+                  margin-top: 20px;
+                }
+                .popup_btn {
+                  flex: 1;
+                  height: 44px;
+                  border: 0;
+                  border-radius: 10px;
+                  background: #eee;
+                  color: #222;
+                  font: inherit;
+                  font-weight: 700;
+                  cursor: pointer;
+                }
+                .popup_btn_main {
+                  background: #ff617b;
+                  color: #fff;
+                }
+              </pre>
+              <p class="guide_code_title">JS (jQuery) — 열기 / 닫기 / 딤 클릭 / ESC</p>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                $(document).on("click", "[data-popup_open]", function () {
+                  $($(this).data("popup_open")).addClass("is_open");
+                });
+                $(document).on("click", "[data-popup_close]", function () {
+                  $(this).closest(".popup_layer").removeClass("is_open");
+                });
+                $(document).on("click", ".popup_layer", function (e) {
+                  if (e.target === this) $(this).removeClass("is_open");
+                });
+                $(document).on("keydown", function (e) {
+                  if (e.key === "Escape") $(".popup_layer.is_open").removeClass("is_open");
+                });
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>popup_modal — 중앙 모달</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <button type="button" class="demo_btn" data-popup_open="#modal_demo">모달 열기</button>
+                <div class="popup_layer popup_center" id="modal_demo">
+                  <div class="popup_modal" role="dialog" aria-modal="true">
+                    <h3 class="popup_title">알림</h3>
+                    <p class="popup_text">모달 내용을 입력하세요.</p>
+                    <div class="popup_btns">
+                      <button type="button" class="popup_btn popup_btn_main" data-popup_close>확인</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="guide_code_title">HTML</p>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                &lt;button type="button" data-popup_open="#modal_demo">모달 열기&lt;/button>
+
+                &lt;div class="popup_layer popup_center" id="modal_demo">
+                  &lt;div class="popup_modal" role="dialog" aria-modal="true">
+                    &lt;h3 class="popup_title">알림&lt;/h3>
+                    &lt;p class="popup_text">모달 내용을 입력하세요.&lt;/p>
+                    &lt;div class="popup_btns">
+                      &lt;button type="button" class="popup_btn popup_btn_main" data-popup_close>확인&lt;/button>
+                    &lt;/div>
+                  &lt;/div>
+                &lt;/div>
+              </pre>
+              <p class="guide_code_title">CSS</p>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .popup_modal {
+                  width: min(320px, calc(100% - 40px));
+                  padding: 24px;
+                  border-radius: 16px;
+                  background: #fff;
+                  transform: scale(0.9);
+                  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                }
+                .popup_layer.is_open .popup_modal {
+                  transform: scale(1);
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>popup_alert — 확인/취소 알럿</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <button type="button" class="demo_btn" data-popup_open="#alert_demo">알럿 열기</button>
+                <div class="popup_layer popup_center" id="alert_demo">
+                  <div class="popup_modal popup_alert" role="alertdialog" aria-modal="true">
+                    <h3 class="popup_title">삭제할까요?</h3>
+                    <p class="popup_text">삭제하면 되돌릴 수 없습니다.</p>
+                    <div class="popup_btns">
+                      <button type="button" class="popup_btn" data-popup_close>취소</button>
+                      <button type="button" class="popup_btn popup_btn_main" data-popup_close>삭제</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="guide_code_title">HTML</p>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                &lt;button type="button" data-popup_open="#alert_demo">알럿 열기&lt;/button>
+
+                &lt;div class="popup_layer popup_center" id="alert_demo">
+                  &lt;div class="popup_modal popup_alert" role="alertdialog" aria-modal="true">
+                    &lt;h3 class="popup_title">삭제할까요?&lt;/h3>
+                    &lt;p class="popup_text">삭제하면 되돌릴 수 없습니다.&lt;/p>
+                    &lt;div class="popup_btns">
+                      &lt;button type="button" class="popup_btn" data-popup_close>취소&lt;/button>
+                      &lt;button type="button" class="popup_btn popup_btn_main" data-popup_close>삭제&lt;/button>
+                    &lt;/div>
+                  &lt;/div>
+                &lt;/div>
+              </pre>
+              <p class="guide_code_title">CSS (popup_modal 과 같이 사용)</p>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .popup_alert {
+                  width: min(280px, calc(100% - 40px));
+                  text-align: center;
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>popup_sheet — 아래에서 올라오는 시트</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <button type="button" class="demo_btn" data-popup_open="#sheet_demo">시트 열기</button>
+                <div class="popup_layer popup_bottom" id="sheet_demo">
+                  <div class="popup_sheet" role="dialog" aria-modal="true">
+                    <h3 class="popup_title">옵션 선택</h3>
+                    <p class="popup_text">아래에서 올라오는 시트입니다.</p>
+                    <div class="popup_btns">
+                      <button type="button" class="popup_btn popup_btn_main" data-popup_close>닫기</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="guide_code_title">HTML</p>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                &lt;button type="button" data-popup_open="#sheet_demo">시트 열기&lt;/button>
+
+                &lt;div class="popup_layer popup_bottom" id="sheet_demo">
+                  &lt;div class="popup_sheet" role="dialog" aria-modal="true">
+                    &lt;h3 class="popup_title">옵션 선택&lt;/h3>
+                    &lt;p class="popup_text">아래에서 올라오는 시트입니다.&lt;/p>
+                    &lt;div class="popup_btns">
+                      &lt;button type="button" class="popup_btn popup_btn_main" data-popup_close>닫기&lt;/button>
+                    &lt;/div>
+                  &lt;/div>
+                &lt;/div>
+              </pre>
+              <p class="guide_code_title">CSS</p>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .popup_sheet {
+                  width: 100%;
+                  max-width: 480px;
+                  padding: 12px 20px 24px;
+                  border-radius: 20px 20px 0 0;
+                  background: #fff;
+                  transform: translateY(100%);
+                  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+                }
+                .popup_sheet::before {
+                  content: "";
+                  display: block;
+                  width: 40px;
+                  height: 4px;
+                  margin: 0 auto 16px;
+                  border-radius: 2px;
+                  background: #ddd;
+                }
+                .popup_layer.is_open .popup_sheet {
+                  transform: translateY(0);
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>popup_drawer — 옆에서 열리는 드로어</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <button type="button" class="demo_btn" data-popup_open="#drawer_demo">드로어 열기</button>
+                <div class="popup_layer popup_right" id="drawer_demo">
+                  <div class="popup_drawer" role="dialog" aria-modal="true">
+                    <h3 class="popup_title">메뉴</h3>
+                    <p class="popup_text">오른쪽에서 열리는 드로어입니다.</p>
+                    <div class="popup_btns">
+                      <button type="button" class="popup_btn popup_btn_main" data-popup_close>닫기</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="guide_code_title">HTML</p>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                &lt;button type="button" data-popup_open="#drawer_demo">드로어 열기&lt;/button>
+
+                &lt;div class="popup_layer popup_right" id="drawer_demo">
+                  &lt;div class="popup_drawer" role="dialog" aria-modal="true">
+                    &lt;h3 class="popup_title">메뉴&lt;/h3>
+                    &lt;p class="popup_text">오른쪽에서 열리는 드로어입니다.&lt;/p>
+                    &lt;div class="popup_btns">
+                      &lt;button type="button" class="popup_btn popup_btn_main" data-popup_close>닫기&lt;/button>
+                    &lt;/div>
+                  &lt;/div>
+                &lt;/div>
+              </pre>
+              <p class="guide_code_title">CSS</p>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .popup_drawer {
+                  width: 240px;
+                  max-width: 80%;
+                  padding: 24px 20px;
+                  background: #fff;
+                  transform: translateX(100%);
+                  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+                }
+                .popup_layer.is_open .popup_drawer {
+                  transform: translateX(0);
+                }
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>popup_toast — 잠깐 떴다 사라지는 알림</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <button type="button" class="demo_btn" data-toast_open="#toast_demo">토스트 보기</button>
+                <div class="popup_toast" id="toast_demo" role="status">저장되었습니다.</div>
+              </div>
+              <p class="guide_code_title">HTML</p>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                &lt;button type="button" data-toast_open="#toast_demo">토스트 보기&lt;/button>
+
+                &lt;div class="popup_toast" id="toast_demo" role="status">저장되었습니다.&lt;/div>
+              </pre>
+              <p class="guide_code_title">CSS</p>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .popup_toast {
+                  position: fixed;
+                  left: 50%;
+                  bottom: 32px;
+                  z-index: 1100;
+                  padding: 12px 20px;
+                  border-radius: 999px;
+                  background: rgba(34, 34, 34, 0.92);
+                  color: #fff;
+                  font-size: 14px;
+                  white-space: nowrap;
+                  opacity: 0;
+                  visibility: hidden;
+                  transform: translate(-50%, 16px);
+                  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease;
+                }
+                .popup_toast.is_show {
+                  opacity: 1;
+                  visibility: visible;
+                  transform: translate(-50%, 0);
+                }
+              </pre>
+              <p class="guide_code_title">JS (jQuery) — 2초 뒤 자동으로 사라짐</p>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                $(document).on("click", "[data-toast_open]", function () {
+                  var $toast = $($(this).data("toast_open"));
+                  clearTimeout($toast.data("timer"));
+                  $toast.addClass("is_show");
+                  $toast.data("timer", setTimeout(function () {
+                    $toast.removeClass("is_show");
+                  }, 2000));
+                });
+              </pre>
+            </div>
+          </details>
+
+          <details class="guide_item" open>
+            <summary>popup_tip — 마우스 올리면 나오는 말풍선</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <span class="popup_tip_wrap">
+                  <button type="button" class="demo_btn">도움말</button>
+                  <span class="popup_tip" role="tooltip">툴팁 내용</span>
+                </span>
+              </div>
+              <p class="guide_code_title">HTML</p>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                &lt;span class="popup_tip_wrap">
+                  &lt;button type="button">도움말&lt;/button>
+                  &lt;span class="popup_tip" role="tooltip">툴팁 내용&lt;/span>
+                &lt;/span>
+              </pre>
+              <p class="guide_code_title">CSS (JS 없음)</p>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .popup_tip_wrap {
+                  position: relative;
+                  display: inline-block;
+                }
+                .popup_tip {
+                  position: absolute;
+                  left: 50%;
+                  bottom: calc(100% + 10px);
+                  padding: 8px 12px;
+                  border-radius: 8px;
+                  background: #222;
+                  color: #fff;
+                  font-size: 13px;
+                  white-space: nowrap;
+                  opacity: 0;
+                  visibility: hidden;
+                  transform: translate(-50%, 6px);
+                  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+                }
+                .popup_tip::after {
+                  content: "";
+                  position: absolute;
+                  top: 100%;
+                  left: 50%;
+                  margin-left: -5px;
+                  border: 5px solid transparent;
+                  border-top-color: #222;
+                }
+                .popup_tip_wrap:hover .popup_tip,
+                .popup_tip_wrap:focus-within .popup_tip {
+                  opacity: 1;
+                  visibility: visible;
+                  transform: translate(-50%, 0);
+                }
+              </pre>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ==================== input ==================== -->
+      <section class="tab_panel" id="tab_input" role="tabpanel">
+        <p class="guide_empty">준비 중입니다.</p>
+      </section>
+    </div>
+
+    <script>
+      $(function () {
+        /* ---------- 코드 블록: HTML 들여쓰기 제거 (화면에는 왼쪽 정렬로 표시) ---------- */
+        $(".guide_code").each(function () {
+          var lines = this.textContent.replace(/^\n/, "").replace(/\s+$/, "").split("\n");
+          var indent = Math.min.apply(
+            null,
+            lines
+              .filter(function (l) {
+                return l.trim();
+              })
+              .map(function (l) {
+                return l.match(/^ */)[0].length;
+              }),
+          );
+          this.textContent = lines
+            .map(function (l) {
+              return l.slice(indent);
+            })
+            .join("\n");
+        });
+
+        /* ---------- 탭 전환 ---------- */
+        function show_tab(name) {
+          $(".tab_btn")
+            .removeClass("is_active")
+            .attr("aria-selected", "false")
+            .filter('[data-tab="' + name + '"]')
+            .addClass("is_active")
+            .attr("aria-selected", "true");
+          $(".tab_panel")
+            .removeClass("is_active")
+            .filter("#tab_" + name)
+            .addClass("is_active");
+          $(".popup_layer").removeClass("is_open"); // 탭 바꾸면 열린 팝업 닫기
+        }
+
+        $(".tab_btn").on("click", function () {
+          var name = $(this).data("tab");
+          show_tab(name);
+          history.replaceState(null, "", "#" + name); // 새로고침해도 탭 유지
+        });
+
+        var first_tab = location.hash.slice(1);
+        if (first_tab && $("#tab_" + first_tab).length) show_tab(first_tab);
+
+        /* ---------- popup 공통: 열기 / 닫기 / 딤 클릭 / ESC ---------- */
+        $(document).on("click", "[data-popup_open]", function () {
+          $($(this).data("popup_open")).addClass("is_open");
+        });
+        $(document).on("click", "[data-popup_close]", function () {
+          $(this).closest(".popup_layer").removeClass("is_open");
+        });
+        $(document).on("click", ".popup_layer", function (e) {
+          if (e.target === this) $(this).removeClass("is_open");
+        });
+        $(document).on("keydown", function (e) {
+          if (e.key === "Escape") $(".popup_layer.is_open").removeClass("is_open");
+        });
+
+        /* ---------- popup toast ---------- */
+        $(document).on("click", "[data-toast_open]", function () {
+          var $toast = $($(this).data("toast_open"));
+          clearTimeout($toast.data("timer"));
+          $toast.addClass("is_show");
+          $toast.data(
+            "timer",
+            setTimeout(function () {
+              $toast.removeClass("is_show");
+            }, 2000),
+          );
+        });
+
+        /* ---------- animation 미리보기 반복 재생 ---------- */
+        const INTERVAL = 2000; // 반복 간격(ms). 클수록 쉬는 시간이 길어짐
+        const ONCE = ".fade_in_up, .fade_in_down, .fade_in_left, .fade_in_right, .pop_bubble, .zoom_in, .flip";
+
+        setInterval(function () {
+          $("#tab_animation .guide_preview")
+            .find(ONCE)
+            .each(function () {
+              this.getAnimations().forEach(function (a) {
+                a.currentTime = 0; // 처음으로 되감기
+                a.play();
+              });
+            });
+        }, INTERVAL);
+      });
+    </script>
+  </body>
+</html>

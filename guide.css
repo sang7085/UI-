@@ -1,0 +1,221 @@
+@charset "UTF-8";
+
+/* ========== 가이드 페이지 공통 (복붙 안 해도 됨) ========== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  background: #1b1b1b;
+  color: #f4eee8;
+}
+
+.page {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+.page h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+.page .lead {
+  margin: 0 0 20px;
+  color: #cbbfb4;
+  line-height: 1.5;
+}
+
+/* ---------- 탭 ---------- */
+.guide_tab {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 6px;
+  margin: 0 0 20px;
+  padding: 10px 0;
+  background: #1b1b1b;
+  border-bottom: 1px solid #3a322c;
+  overflow-x: auto;
+}
+.tab_btn {
+  flex-shrink: 0;
+  height: 40px;
+  padding: 0 20px;
+  border: 1px solid #3a322c;
+  border-radius: 20px;
+  background: #241f1b;
+  color: #cbbfb4;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.tab_btn:hover { background: #2c2621; }
+.tab_btn.is_active {
+  border-color: #ff617b;
+  background: #ff617b;
+  color: #fff;
+}
+.tab_panel { display: none; }
+.tab_panel.is_active { display: block; }
+.guide_empty {
+  padding: 80px 0;
+  text-align: center;
+  color: #8d8177;
+}
+
+/* ---------- 아코디언 목록 ---------- */
+.guide_preview .fade_in_up,
+.guide_preview .fade_in_down,
+.guide_preview .fade_in_left,
+.guide_preview .fade_in_right,
+.guide_preview .pop_bubble,
+.guide_preview .zoom_in,
+.guide_preview .flip {
+  /* animation-iteration-count: infinite; */
+}
+
+.guide_list { display: grid; gap: 10px; }
+.guide_item {
+  border: 1px solid #3a322c;
+  border-radius: 12px;
+  background: #241f1b;
+  overflow: hidden;
+}
+.guide_item > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.guide_item > summary::-webkit-details-marker { display: none; }
+.guide_item > summary::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #f4eee8;
+  border-bottom: 2px solid #f4eee8;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+.guide_item[open] > summary::after { transform: rotate(225deg); }
+.guide_item > summary:hover { background: #2c2621; }
+.guide_panel {
+  padding: 0 20px 20px;
+  border-top: 1px solid #3a322c;
+}
+.guide_preview {
+  position: relative;
+  margin: 16px 0;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff7ee;
+  border-radius: 10px;
+  overflow: hidden;
+  /* transform 이 있으면 안쪽 position: fixed 가 이 영역 기준이 됨 (팝업 미리보기용) */
+  transform: translateZ(0);
+}
+#tab_popup .guide_preview { min-height: 260px; }
+
+.guide_code_title {
+  margin: 16px 0 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #cbbfb4;
+}
+.guide_code {
+  margin: 0;
+  padding: 14px;
+  border-radius: 8px;
+  background: #14110f;
+  color: #d7c8b8;
+  font-size: 12px;
+  line-height: 1.55;
+  overflow: auto;
+  white-space: pre-wrap;
+}
+
+/* ---------- 미리보기용 데모 요소 ---------- */
+.demo_box {
+  width: 88px;
+  height: 88px;
+  border-radius: 18px;
+  background: #ff617b;
+  color: #fff;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.demo_char {
+  width: 72px;
+  height: 88px;
+  border-radius: 36px 36px 20px 20px;
+  background: #734e3a;
+  position: relative;
+}
+.demo_char::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 16px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 28px 0 0 #fff;
+}
+.demo_bubble {
+  width: 90px;
+  height: 64px;
+  border-radius: 20px;
+  background: #fff;
+  color: #734e3a;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px rgba(115, 78, 58, 0.2);
+}
+.demo_cursor {
+  position: relative;
+  width: 120px;
+  height: 48px;
+  border-radius: 24px;
+  background: #38c478;
+  color: #fff;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.demo_cursor span {
+  position: absolute;
+  right: -8px;
+  bottom: -18px;
+  width: 22px;
+  height: 22px;
+  border-radius: 4px 12px 12px 12px;
+  background: #111;
+}
+.demo_btn {
+  height: 44px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 22px;
+  background: #ff617b;
+  color: #fff;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
