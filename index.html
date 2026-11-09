@@ -406,6 +406,36 @@
               </pre>
             </div>
           </details>
+
+          <details class="guide_item" open>
+            <summary>shimmer - 보였다 사라졌다</summary>
+            <div class="guide_panel">
+              <div class="guide_preview">
+                <div class="demo_box shimmer">SHIMMER</div>
+              </div>
+              <!-- prettier-ignore -->
+              <pre class="guide_code">
+                .shimmer {
+                  animation: shimmer 1.3s ease-in-out infinite;
+                }
+                @keyframes shimmer {
+                  0% {
+                    opacity: 1;
+                  }
+                  
+                  30% {
+                      opacity: 1;
+                  }
+                  60% {
+                      opacity: 0.5;
+                  }
+                  100% {
+                      opacity: 1;
+                  }
+                }
+              </pre>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -907,5 +937,4 @@
         }, INTERVAL);
       });
     </script>
-  </body>
 </html>

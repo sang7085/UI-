@@ -204,3 +204,23 @@
   0%, 100% { transform: translateX(-40px); }
   50% { transform: translateX(40px); }
 }
+
+/* shimmer - 보였다 사라졌다 */
+.shimmer {
+  animation: shimmer 1.3s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0% {
+    opacity: 1;
+  }
+  
+  30% {
+      opacity: 1;
+  }
+  60% {
+      opacity: 0.5;
+  }
+  100% {
+      opacity: 1;
+  }
+}
