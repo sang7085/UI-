@@ -224,3 +224,35 @@
       opacity: 1;
   }
 }
+
+.snow {
+  animation: 
+    snowDrop 4s linear infinite,
+    snowSway 2s ease-in-out infinite alternate;
+}
+
+@keyframes snowDrop {
+  0% {
+    opacity: 0;
+    top: -20px;
+  }
+  15% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    top: 100px;
+  }
+}
+
+@keyframes snowSway {
+  0% {
+    transform: translateX(-15px) rotate(-15deg);
+  }
+  100% {
+    transform: translateX(15px) rotate(15deg);
+  }
+}
