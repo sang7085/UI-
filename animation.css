@@ -226,33 +226,28 @@
 }
 
 .snow {
-  animation: 
-    snowDrop 4s linear infinite,
-    snowSway 2s ease-in-out infinite alternate;
+  animation: snowFall 4s ease-in-out infinite;
 }
 
-@keyframes snowDrop {
+@keyframes snowFall {
   0% {
     opacity: 0;
-    top: -20px;
+    transform: translate(0, -10px) rotate(0deg);
   }
   15% {
     opacity: 1;
   }
-  80% {
-    opacity: 1;
+  30% {
+    transform: translate(12px, 30px) rotate(45deg);
+  }
+  60% {
+    transform: translate(-12px, 70px) rotate(90deg);
+  }
+  85% {
+    opacity: 0.7;
   }
   100% {
     opacity: 0;
-    top: 100px;
-  }
-}
-
-@keyframes snowSway {
-  0% {
-    transform: translateX(-15px) rotate(-15deg);
-  }
-  100% {
-    transform: translateX(15px) rotate(15deg);
+    transform: translate(6px, 110px) rotate(135deg);
   }
 }
